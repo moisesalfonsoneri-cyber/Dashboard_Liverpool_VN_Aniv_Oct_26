@@ -1,0 +1,748 @@
+===PROMT PARA CHAT GPT===
+
+CREAR UNA MATRIZ DE CORRELACIÓN. 
+plot
+sns.heatmap
+La gráfica de calor hace una correlación o matriz de correlación.
+
+Hola hagamos un nuevo proyecto. 
+Con salida jupyter notebook. Necesito que me ayudes a analizar, no quiero el código aún, me gustaría que hagamos la arquitectura del proyecto conforme a las instrucciones. Si falta instrucciones me preguntes. Me propones un plan que podamos poner en practica fácilmente, por pasos en el código para CODEX. Recuerda todo lo que tengo a mi disposición. VS Code, CODEX, GITHUB, Render, Python. Adjunto el archivo requirements.txt, que contiene las librerías, menciona si requieres tu otra librería.
+
+Te dejo contexto.
+
+===CONTEXTO===
+El análisis se basa en datos obtenidos por parte de la empresa Grabapro, empresa dedicada a organizar experiencias de marketing en sitio enfocadas en personalizar con máquina laser productos de lujo, en está ocasión es con la tienda Liverpool en el área de cosméticos y fragancias como parte de la campaña de Venta Nocturna de abril previo al 10 de mayo día de las madres en México. Son 4 tiendas en el Estado de México, 1 en Guerrero, 1 en Morelos y finalmente 2 en Ciudad de México.
+
+El principal objetivo es analizar la información obtenida sobre el total de frascos de perfumes y cosméticos grabados con frases que solicita el comprador en la tienda para regalo o para si mismo. Los datos se compararán entre marcas vs tiendas vs fechas vs género del comprador.
+
+Las instrucciones son las siguientes:
+
+===instrucciones===
+
+A. Descripción de los df:
+1) Liverpool_Angelopolis_Madres_Mayo_26.csv
+2) Liverpool_Coapa_Madres_Mayo_26.csv
+3) Liverpool_Metepec_Madres_Mayo_26.csv
+4) Liverpool_ParqueAntenas_Madres_Mayo_26.csv
+5) Liverpool_ParqueDelta_Madres_Mayo_26.csv
+6) Liverpool_Puebla_Madres_Mayo_26.csv
+7) Liverpool_Tezontle_Madres_Mayo_26.csv
+8) Liverpool_Toluca_Madres_Mayo_26.csv
+
+Descripción de columnas:
+-Marca: Marca del Perfume
+-Producto: Tipo de cósmetico o fragancia donde cada unidad es 1 grabado a contar
+-Frase: Lo que decidió en cliente para grabar
+-Genero: Quién compró el producto Hombre o Mujer
+-Fecha: Cuando se hizó el grabado
+-Surcursal: Tienda de Liverpool donde se hizo la activación y el grabado
+
+B. REPOSITORIO in github:
+$ Reporte_Liverpool_VN_abril26
+.
+├── README.md
+├── app.py
+├── Liverpool_Angelopolis_Madres_Mayo_26.csv
+├── Liverpool_Coapa_Madres_Mayo_26.csv
+├── Liverpool_Metepec_Madres_Mayo_26.csv
+├── Liverpool_ParqueAntenas_Madres_Mayo_26.csv
+├── Liverpool_ParqueDelta_Madres_Mayo_26.csv
+├── Liverpool_Puebla_Madres_Mayo_26.csv
+├── Liverpool_Tezontle_Madres_Mayo_26.csv
+├── Liverpool_Toluca_Madres_Mayo_26.csv
+├── requirements.txt
+└── notebooks
+    └── EDA.ipynb
+└── logotipos
+    └── GrabaPro.png
+    └── Liverpool.png
+
+
+C. OBJETIVOS del EDA:
+1. Agrupar las 8 df un uno solo, hacer una de limpieza de datos y análisis exploratorio. Homologa las marcas con los comandos upper o capital Guardar el df agrupado. Trata los null no elimines datos duplicados.
+2. agrupar por tienda. contar productos con histograma
+3. agrupar por marca. contar productos con histograma
+4. agrupar por fecha. contar productos con histograma
+5. agrupar por genero. definir porcentajes en una gráfica de pastel
+6. agrupar por genero y tienda. definir porcentajes en una gráfica de pastel
+7. agrupar por genero y marca. definir porcentajes en una gráfica de pastel
+
+D. propuesta práctica de arquitectura de trabajo de la app
+
+Fase 1. Exploración rápida en notebook
+
+Objetivo: entender el dataset sin perder tiempo.
+
+Qué harías:
+
+1. en la carpeta notebooks, usar el archivo EDA.ipynb, para el análisis exploratorio.
+2. Revisar forma, columnas, nulos y tipos de lOS  8 archivos: "*.csv"
+3. probar solo las visualizaciones necesarias.
+
+NOTA: Aquí la regla debe ser:
+exploración corta, decisiones rápidas. No necesitamos un EDA profundo; necesitamos responder:
+
+¿Qué columna usaré para los 3 histogramas?
+R= Conforme al apartado C (C. OBJETIVOS del EDA:)
+¿Qué columna usaré mínima para los 3 gráficos de pastel?
+R= Conforme al apartado C (C. OBJETIVOS del EDA:)
+
+Fase 2. Diseño funcional de la app
+
+En repositorio usar el archivo EDA.ipynb
+La app debe tener esta lógica:
+
+Bloque 1. Presentación
+
+título o header, 
+Agregar logotipos: GrabaPro.jpge
+└── logotipos
+      └── GrabaPro.png
+      └── Liverpool.png
+
+Breve texto que datos sube la aplicación.
+
+Bloque 2. Vista de control
+
+un botón para histograma,
+un botón para gráfica de pastel.
+
+Bloque 3. Vista de resultados
+
+texto corto que explique qué se generó,
+gráfico interactivo.
+
+Bloque 4. Dashboard
+Presentación de un dashboard que resuma lo más relevante de cada uno de los 6 gráficos.
+
+Bloque 5. Cierre
+Conclusiones del estudio.
+
+Fase 3. Complemento.
+Dejar abierto el promt para agregar un analisis nuevo.
+
+===================PROMT CODEX===================
+PROMPT 0 CORREGIDO — Solo reglas, no código
+Crea únicamente un archivo llamado PROJECT_RULES.md en la raíz del proyecto.
+
+No modifiques app.py.
+No modifiques README.md.
+No modifiques notebooks/EDA.ipynb.
+No crees código Python todavía.
+No crees dashboard todavía.
+No limpies datos todavía.
+No leas archivos CSV todavía.
+No generes gráficas todavía.
+No generes archivos en data/processed todavía.
+
+Solo documenta las reglas del proyecto Reporte_Liverpool_Madres_Mayo_26.
+
+Contenido que debe tener PROJECT_RULES.md:
+
+# Reporte_Liverpool_Madres_Mayo_26
+
+## Objetivo
+Analizar los grabados realizados durante el evento del día de madres en Liverpool 10 mayo 2026 para productos de cosméticos y fragancias personalizados por GrabaPro.
+
+## Reglas obligatorias
+1. Los archivos de entrada son CSV.
+2. No usar read_excel().
+3. No convertir nada a Excel.
+4. No generar archivos Excel.
+5. El notebook principal será notebooks/EDA.ipynb.
+6. La app final será app.py con Streamlit.
+7. La app deberá llamarse:
+Dashboard Liverpool Total Grabados Día de las Madres 2026
+8. No limpiar ni modificar la columna frase.
+9. No corregir ortografía de la columna frase.
+10. No crear frase_original ni frase_limpia.
+11. Corregir Surcursal a Sucursal.
+12. Convertir nombres de columnas a snake_case.
+13. Homologar marcas a mayúsculas.
+14. Homologar género.
+15. Convertir fecha a formato fecha.
+16. Crear columna grabado = 1.
+17. Crear id_global.
+18. Crear codigo_tienda.
+19. Crear archivo_origen.
+20. Crear id_trazabilidad.
+21. No eliminar duplicados.
+22. Revisar duplicados, pero no borrarlos.
+23. Revisar nulos sin eliminar registros.
+24. En análisis de marcas mostrar todas las marcas.
+25. Solo en dashboard ejecutivo se permite usar Top 5.
+26. Usar gráficos de barras para conteos.
+27. Usar gráficas de pastel para género.
+28. Usar logotipos:
+logotipos/GrabaPro.png
+logotipos/Liverpool.png
+29. Usar rutas relativas con pathlib.
+30. No usar rutas absolutas de mi computadora.
+
+## Códigos de tienda
+
+AGP = Angelopolis
+COA = Coapa
+MET = Metepec
+PAT = Parque Antenas
+PDT = Parque Delta
+PUE = Puebla
+TZT = Tezontle
+TOL = Toluca
+
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 1 — Diagnóstico, sin modificar nada
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Haz únicamente un diagnóstico del estado actual del proyecto.
+
+No modifiques ningún archivo.
+No crees archivos nuevos.
+No borres archivos.
+No ejecutes limpieza.
+No generes dashboard.
+No generes notebook.
+No generes CSV limpio.
+
+Revisa únicamente si existen:
+
+1. requirements.txt
+2. app.py
+3. README.md
+4. notebooks/EDA.ipynb
+5. data/raw/
+6. data/processed/
+7. logotipos/GrabaPro.png
+8. logotipos/Liverpool.png
+
+También revisa si existen estos 8 CSV en data/raw:
+
+Liverpool_Angelopolis_Madres_Mayo_26.csv
+Liverpool_Coapa_Madres_Mayo_26.csv
+Liverpool_Metepec_Madres_Mayo_26.csv
+Liverpool_ParqueAntenas_Madres_Mayo_26.csv
+Liverpool_ParqueDelta_Madres_Mayo_26.csv
+Liverpool_Puebla_Madres_Mayo_26.csv
+Liverpool_Tezontle_Madres_Mayo_26.csv
+Liverpool_Toluca_Madres_Mayo_26.csv
+
+Entrega un reporte en tabla con:
+
+- Elemento revisado
+- Existe / No existe
+- Observación
+- Acción recomendada
+
+No hagas correcciones todavía.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 2 — Crear solo estructura de carpetas
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Crea únicamente las carpetas faltantes de esta estructura:
+
+data/
+data/raw/
+data/processed/
+notebooks/
+logotipos/
+
+No modifiques app.py.
+No modifiques README.md.
+No modifiques requirements.txt.
+No crees todavía notebooks/EDA.ipynb si no existe.
+No leas CSV.
+No limpies datos.
+No crees dashboard.
+No generes CSV limpio.
+
+Al terminar, entrega una lista de carpetas creadas y carpetas que ya existían.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 3 — Crear notebook vacío estructurado
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Crea o reemplaza únicamente el archivo:
+
+notebooks/EDA.ipynb
+
+El notebook debe contener solo la estructura base con celdas markdown y celdas code vacías o mínimas.
+
+No ejecutes análisis todavía.
+No leas CSV todavía.
+No limpies datos todavía.
+No generes gráficas todavía.
+No generes archivos en data/processed.
+No modifiques app.py.
+No modifiques README.md.
+
+Estructura del notebook:
+
+1. Portada del proyecto
+2. Importación de librerías
+3. Definición de rutas
+4. Carga de los 8 CSV
+5. Revisión rápida de estructura
+6. Corrección de nombres de columnas
+7. Agregar trazabilidad por tienda
+8. Unión de los 8 DataFrames
+9. Limpieza básica permitida
+10. Revisión de nulos
+11. Revisión de duplicados sin eliminarlos
+12. Guardado del CSV limpio
+13. Agrupaciones principales
+14. Gráficos de barras
+15. Gráficas de pastel
+16. Dashboard ejecutivo en notebook
+17. Conclusiones
+
+En cada sección agrega una breve explicación en markdown.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 4 — Librerías y rutas solamente
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Modifica únicamente notebooks/EDA.ipynb.
+
+Completa solo estas secciones:
+
+1. Importación de librerías
+2. Definición de rutas
+
+Usa únicamente:
+
+import pandas as pd
+import numpy as np
+from pathlib import Path
+import plotly.express as px
+import matplotlib.pyplot as plt
+
+Define:
+
+BASE_DIR = Path.cwd()
+DATA_RAW = BASE_DIR / "data" / "raw"
+DATA_PROCESSED = BASE_DIR / "data" / "processed"
+LOGOS_DIR = BASE_DIR / "logotipos"
+OUTPUT_FILE = DATA_PROCESSED / "Liverpool_Madres_Mayo26_consolidado_limpio.csv"
+
+Crea DATA_PROCESSED si no existe.
+
+No leas CSV todavía.
+No limpies datos.
+No crees gráficas.
+No modifiques app.py.
+No modifiques README.md.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 5 — Cargar CSV y revisar estructura
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Modifica únicamente notebooks/EDA.ipynb.
+
+Completa solo estas secciones:
+
+1. Carga de los 8 CSV
+2. Revisión rápida de estructura
+
+Usa pd.read_csv().
+No uses read_excel().
+
+Crea un diccionario llamado archivos_tiendas con:
+
+AGP: Liverpool_Angelopolis_Madres_Mayo_26.csv
+COA: Liverpool_Coapa_Madres_Mayo_26.csv
+MET: Liverpool_Metepec_Madres_Mayo_26.csv
+PAT: Liverpool_ParqueAntenas_Madres_Mayo_26.csv
+PDT: Liverpool_ParqueDelta_Madres_Mayo_26.csv
+PUE: Liverpool_Puebla_Madres_Mayo_26.csv
+TZT: Liverpool_Tezontle_Madres_Mayo_26.csv
+TOL: Liverpool_Toluca_Madres_Mayo_26.csv
+
+Carga cada CSV en un diccionario llamado dataframes.
+
+Para cada DataFrame muestra:
+
+- shape
+- columns
+- dtypes
+- head()
+- isna().sum()
+
+No limpies datos todavía.
+No unas los DataFrames todavía.
+No modifiques frase.
+No generes gráficas.
+No generes CSV limpio.
+No modifiques app.py.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 6 — Normalizar columnas y agregar trazabilidad
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Modifica únicamente notebooks/EDA.ipynb.
+
+Completa solo estas secciones:
+
+1. Corrección de nombres de columnas
+2. Agregar trazabilidad por tienda
+
+Crea una función normalizar_columnas(df) que:
+
+1. Quite espacios en nombres de columnas.
+2. Cambie Surcursal a Sucursal si existe.
+3. Convierta nombres de columnas a minúsculas.
+4. Reemplace espacios por guiones bajos.
+5. Deje nombres en snake_case.
+
+Columnas esperadas:
+
+marca
+producto
+frase
+genero
+fecha
+sucursal
+
+Después, para cada DataFrame agrega:
+
+archivo_origen
+codigo_tienda
+id_local
+id_trazabilidad
+
+El formato de id_trazabilidad debe ser:
+
+AGP-00001
+AGP-00002
+COA-00001
+
+
+No unas los DataFrames todavía.
+No limpies valores todavía.
+No modifiques frase.
+No generes CSV limpio.
+No generes gráficas.
+No modifiques app.py.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 7 — Unir y limpiar solo lo permitido
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Modifica únicamente notebooks/EDA.ipynb.
+
+Completa solo estas secciones:
+
+1. Unión de los 8 DataFrames
+2. Limpieza básica permitida
+
+Une los DataFrames con pd.concat(ignore_index=True) en:
+
+df_liverpool
+
+Crea:
+
+id_global = consecutivo general empezando en 1
+grabado = 1
+
+Limpieza permitida:
+
+1. marca:
+- convertir a string
+- quitar espacios
+- convertir a mayúsculas
+- reemplazar nulos o vacíos por SIN MARCA
+
+2. producto:
+- reemplazar nulos o vacíos por SIN PRODUCTO
+
+3. genero:
+- convertir a string
+- quitar espacios
+- convertir a mayúsculas
+- homologar a HOMBRE, MUJER, SIN DATO u OTRO
+
+4. fecha:
+- convertir con pd.to_datetime(errors="coerce")
+- no eliminar fechas nulas
+
+5. sucursal:
+- convertir a string
+- quitar espacios
+- convertir a mayúsculas
+- reemplazar nulos o vacíos por SIN SUCURSAL
+
+Prohibido:
+No modifiques frase.
+No limpies frase.
+No corrijas frase.
+No crees frase_original.
+No crees frase_limpia.
+No elimines duplicados.
+No generes gráficas todavía.
+No modifiques app.py.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 8 — Nulos, duplicados y guardar CSV
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Modifica únicamente notebooks/EDA.ipynb.
+
+Completa solo estas secciones:
+
+1. Revisión de nulos
+2. Revisión de duplicados sin eliminarlos
+3. Guardado del CSV limpio
+
+Para nulos muestra:
+
+- df_liverpool.isna().sum()
+- porcentaje de nulos por columna
+
+Para duplicados calcula:
+
+- total de duplicados
+- porcentaje de duplicados
+- muestra de posibles duplicados
+
+No uses drop_duplicates().
+No elimines duplicados.
+
+Guarda únicamente este archivo CSV:
+
+data/processed/Liverpool_VN_Abril26_consolidado_limpio.csv
+
+Usa:
+
+df_liverpool.to_csv(OUTPUT_FILE, index=False, encoding="utf-8-sig")
+
+No generes Excel.
+No modifiques frase.
+No modifiques app.py.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 9 — Agrupaciones y gráficas en notebook
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Modifica únicamente notebooks/EDA.ipynb.
+
+Completa solo estas secciones:
+
+1. Agrupaciones principales
+2. Gráficos de barras
+3. Gráficas de pastel
+4. Dashboard ejecutivo en notebook
+5. Conclusiones
+
+Crea estos DataFrames:
+
+df_grabados_por_tienda
+df_grabados_por_marca
+df_grabados_por_fecha
+df_genero_total
+df_genero_por_tienda
+df_genero_por_marca
+
+Reglas:
+
+1. Grabados por tienda:
+- mostrar todas las tiendas
+
+2. Grabados por marca:
+- mostrar todas las marcas
+- no usar Top 10
+- no usar Top 15
+
+3. Grabados por fecha:
+- mostrar todas las fechas
+
+4. Género:
+- usar gráficas de pastel
+
+5. Dashboard ejecutivo:
+- sí puede usar Top 5
+
+Usa Plotly para gráficas.
+No modifiques frase.
+No generes Excel.
+No modifiques app.py todavía.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 10 — Crear app.py desde cero
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Crea o reemplaza únicamente app.py.
+
+No modifiques notebooks/EDA.ipynb.
+No modifiques README.md.
+No modifiques los CSV.
+No generes Excel.
+No limpies frase.
+
+La app debe usar Streamlit y leer:
+
+data/processed/Liverpool_VN_Abril26_consolidado_limpio.csv
+
+Si el archivo no existe, mostrar mensaje claro:
+"Primero ejecuta notebooks/EDA.ipynb para generar el CSV limpio."
+
+Título exacto:
+
+Dashboard Liverpool Total Grabados en Venta Nocturna Abril 2026
+
+Debe incluir logotipos:
+
+logotipos/GrabaPro.png
+logotipos/Liverpool.png
+
+Debe incluir sidebar con filtros:
+
+- sucursal
+- marca
+- fecha
+- genero
+
+Debe incluir estas secciones:
+
+1. Dashboard general
+2. Grabados por tienda
+3. Grabados por marca
+4. Grabados por fecha
+5. Género total
+6. Género por tienda
+7. Género por marca
+8. Conclusiones
+
+Cada sección debe tener:
+
+- texto corto explicativo
+- gráfica interactiva
+- tabla resumen
+
+Reglas de gráficas:
+
+1. Dashboard general:
+- puede usar Top 5
+
+2. Grabados por tienda:
+- mostrar todas las tiendas
+
+3. Grabados por marca:
+- mostrar todas las marcas
+- no usar Top 10
+- no usar Top 15
+- usar barras horizontales con altura dinámica
+
+4. Grabados por fecha:
+- mostrar todas las fechas
+
+5. Género:
+- usar gráficas de pastel
+
+No uses reset_index(names=...).
+Usa reset_index() y luego renombra columnas manualmente.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 11 — Validar app.py sin modificar notebook
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Revisa únicamente app.py.
+
+Corrige solo errores necesarios para que la app funcione.
+
+No modifiques notebooks/EDA.ipynb.
+No modifiques README.md.
+No modifiques CSV.
+No generes Excel.
+
+Valida que app.py:
+
+1. Use Streamlit.
+2. Lea el CSV limpio desde data/processed.
+3. Use rutas relativas con pathlib.
+4. Tenga el título exacto.
+5. Use los dos logotipos.
+6. Tenga filtros en sidebar.
+7. Tenga todas las secciones requeridas.
+8. Muestre todas las marcas en la sección Grabados por marca.
+9. Use Top 5 solo en Dashboard general.
+10. No use read_excel().
+11. No use reset_index(names=...).
+12. No modifique frase.
+
+Entrega resumen de cambios.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+PROMPT 12 — README final
+Lee PROJECT_RULES.md y respeta sus reglas.
+
+Crea o actualiza únicamente README.md.
+
+No modifiques app.py.
+No modifiques notebooks/EDA.ipynb.
+No modifiques CSV.
+
+README.md debe incluir:
+
+1. Nombre del proyecto.
+2. Objetivo.
+3. Contexto de negocio.
+4. Estructura del proyecto.
+5. Archivos CSV de entrada.
+6. Archivo CSV limpio generado.
+7. Cómo ejecutar el notebook.
+8. Cómo ejecutar la app.
+9. Librerías del requirements.txt.
+10. Reglas importantes:
+- No se usa Excel.
+- No se eliminan duplicados.
+- No se limpia frase.
+- Marcas en mayúsculas.
+- Género homologado.
+- Trazabilidad por tienda.
+- Todas las marcas se muestran en análisis completos.
+- Solo dashboard usa Top 5.
+
+Cuando termines esta fase, detente.
+No avances a la siguiente fase hasta que yo lo autorice.
+
+
+
+
+

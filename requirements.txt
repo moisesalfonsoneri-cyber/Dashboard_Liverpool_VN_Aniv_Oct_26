@@ -1,0 +1,7 @@
+pandas
+plotly
+scipy
+streamlit
+numpy
+matplotlib
+pathlib
